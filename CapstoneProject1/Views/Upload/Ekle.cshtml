@@ -1,0 +1,1015 @@
+﻿@using CapstoneProject1.Models
+@model List<Koordinat>
+
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<html>
+<body>
+    <br />
+    @if (ViewBag.Message != null)
+    {
+        <section class="content">
+            <div class="invoice p-3 mb-3">
+                <div class="error-content">
+                    <br /><br />
+                    <h3><i class="fas fa-exclamation-triangle text-warning"></i> @ViewBag.Message </h3>
+                    <br /><br />
+                </div>
+            </div>
+        </section>
+    }
+    else
+    {
+        <div class="invoice p-3 mb-3">
+            <!-- title row -->
+            <div class="row">
+                <div class="col-12">
+                    <h3>
+                        <i class="fas fa-globe"></i> SONUÇLAR
+                    </h3>
+                </div>
+                <!-- /.col -->
+            </div>
+
+            <br />
+
+            <!--CHARTS 1-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card" id="Group1" style="display:none">
+                        <div class="card-header">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th>File Name : </th>
+                                        <th><i style="color:blue">@Model[0].dosyaAdi</i></th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Event Latitude : </th>
+                                        <th><i style="color:blue">@Model[0].latitudeE</i></th>
+                                        <th>Event Longitude : </th>
+                                        <th><i style="color:blue">@Model[0].longitudeE</i></th>
+                                        <th>Station Latitude : </th>
+                                        <th><i style="color:blue">@Model[0].latitudeS</i></th>
+                                        <th>Station Longitude : </th>
+                                        <th><i style="color:blue">@Model[0].longitudeS</i></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Acceleration Chart 1</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <!--ACCELERATION CHART 1-->
+                                            <div id="accelerationChart1" style="height: 370px; width: 100%;"></div>
+                                            <script src="~/Scripts/canvasjs.min.js"></script>
+                                            <!--ACCELERATION CHART 1-->
+                                        </div>
+                                        <div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Velocity Chart 1</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <!--VELOCITY CHART 1-->
+                                            <div id="velocityChart1" style="height: 370px; width: 100%;"></div>
+                                            <script src="~/Scripts/canvasjs.min.js"></script>
+                                            <!--VELOCITY CHART 1-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Displacement Chart 1</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <!--DISPLACEMENT CHART 1-->
+                                            <div id="displacementChart1" style="height: 370px; width: 100%;"></div>
+                                            <script src="~/Scripts/canvasjs.min.js"></script>
+                                            <!--DISPLACEMENT CHART 1-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <input type="radio" name="maps" id="1" onchange="CallFuncMap1()" />&nbsp;&nbsp;<b>Show Event1 on Map <i style="color:blue"> (The map is at the bottom of the page)</i></b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--CHARTS 1-->
+            <!--CHARTS 2-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card" id="Group2" style="display:none">
+                        <div class="card-header">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th>File Name : </th>
+                                        <th><i style="color:blue">@Model[1].dosyaAdi</i></th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Event Latitude : </th>
+                                        <th><i style="color:blue">@Model[1].latitudeE</i></th>
+                                        <th>Event Longitude : </th>
+                                        <th><i style="color:blue">@Model[1].longitudeE</i></th>
+                                        <th>Station Latitude : </th>
+                                        <th><i style="color:blue">@Model[1].latitudeS</i></th>
+                                        <th>Station Longitude : </th>
+                                        <th><i style="color:blue">@Model[1].longitudeS</i></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="card-header">
+                                                <h4>Acceleration Chart 2</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <!--ACCELERATION CHART 2-->
+                                                <div id="accelerationChart2" style="height: 370px; width: 100%;"></div>
+                                                <script src="~/Scripts/canvasjs.min.js"></script>
+                                                <!--ACCELERATION CHART 2-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Velocity Chart 2</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <!--VELOCITY CHART 2-->
+                                            <div id="velocityChart2" style="height: 370px; width: 100%;"></div>
+                                            <script src="~/Scripts/canvasjs.min.js"></script>
+                                            <!--VELOCITY CHART 2-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Displacement Chart 2</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <!--DISPLACEMENT CHART 2-->
+                                            <div id="displacementChart2" style="height: 370px; width: 100%;"></div>
+                                            <script src="~/Scripts/canvasjs.min.js"></script>
+                                            <!--DISPLACEMENT CHART 2-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <input type="radio" name="maps" id="2" onchange="CallFuncMap2()" />&nbsp;&nbsp;<b>Show Event2 on Map<i style="color:blue"> (The map is at the bottom of the page)</i></b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--CHARTS 2-->
+            <!--CHARTS 3-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card" id="Group3" style="display:none">
+                        <div class="card-header">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th>File Name : </th>
+                                        <th><i style="color:blue">@Model[2].dosyaAdi</i></th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Event Latitude : </th>
+                                        <th><i style="color:blue">@Model[2].latitudeE</i></th>
+                                        <th>Event Longitude : </th>
+                                        <th><i style="color:blue">@Model[2].longitudeE</i></th>
+                                        <th>Station Latitude : </th>
+                                        <th><i style="color:blue">@Model[2].latitudeS</i></th>
+                                        <th>Station Longitude : </th>
+                                        <th><i style="color:blue">@Model[2].longitudeS</i></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="card-header">
+                                                <h4>Acceleration Chart 3</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <!--ACCELERATION CHART 3-->
+                                                <div id="accelerationChart3" style="height: 370px; width: 100%;"></div>
+                                                <script src="~/Scripts/canvasjs.min.js"></script>
+                                                <!--ACCELERATION CHART 3-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Velocity Chart 3</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <!--VELOCITY CHART 3-->
+                                            <div id="velocityChart3" style="height: 370px; width: 100%;"></div>
+                                            <script src="~/Scripts/canvasjs.min.js"></script>
+                                            <!--VELOCITY CHART 3-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Displacement Chart 3</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <!--DISPLACEMENT CHART 3-->
+                                            <div id="displacementChart3" style="height: 370px; width: 100%;"></div>
+                                            <script src="~/Scripts/canvasjs.min.js"></script>
+                                            <!--DISPLACEMENT CHART 3-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <input type="radio" name="maps" id="3" onchange="CallFuncMap3()" />&nbsp;&nbsp;<b>Show Event3 on Map<i style="color:blue"> (The map is at the bottom of the page)</i></b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--CHARTS 3-->
+            <!--CHARTS 4-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card" id="Group4" style="display:none">
+                        <div class="card-header">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th>File Name : </th>
+                                        <th><i style="color:blue">@Model[3].dosyaAdi</i></th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Event Latitude : </th>
+                                        <th><i style="color:blue">@Model[3].latitudeE</i></th>
+                                        <th>Event Longitude : </th>
+                                        <th><i style="color:blue">@Model[3].longitudeE</i></th>
+                                        <th>Station Latitude : </th>
+                                        <th><i style="color:blue">@Model[3].latitudeS</i></th>
+                                        <th>Station Longitude : </th>
+                                        <th><i style="color:blue">@Model[3].longitudeS</i></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="card-header">
+                                                <h4>Acceleration Chart 4</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <!--ACCELERATION CHART 4-->
+                                                <div id="accelerationChart4" style="height: 370px; width: 100%;"></div>
+                                                <script src="~/Scripts/canvasjs.min.js"></script>
+                                                <!--ACCELERATION CHART 4-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Velocity Chart 4</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <!--VELOCITY CHART 4-->
+                                            <div id="velocityChart4" style="height: 370px; width: 100%;"></div>
+                                            <script src="~/Scripts/canvasjs.min.js"></script>
+                                            <!--VELOCITY CHART 4-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Displacement Chart 4</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <!--DISPLACEMENT CHART 4-->
+                                            <div id="displacementChart4" style="height: 370px; width: 100%;"></div>
+                                            <script src="~/Scripts/canvasjs.min.js"></script>
+                                            <!--DISPLACEMENT CHART 4-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <input type="radio" name="maps" id="4" onchange="CallFuncMap4()" />&nbsp;&nbsp;<b>Show Event4 on Map<i style="color:blue"> (The map is at the bottom of the page)</i></b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--CHARTS 4-->
+            <!--CHARTS 5-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card" id="Group5" style="display:none">
+                        <div class="card-header">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th>File Name : </th>
+                                        <th><i style="color:blue">@Model[4].dosyaAdi</i></th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Event Latitude : </th>
+                                        <th><i style="color:blue">@Model[4].latitudeE</i></th>
+                                        <th>Event Longitude : </th>
+                                        <th><i style="color:blue">@Model[4].longitudeE</i></th>
+                                        <th>Station Latitude : </th>
+                                        <th><i style="color:blue">@Model[4].latitudeS</i></th>
+                                        <th>Station Longitude : </th>
+                                        <th><i style="color:blue">@Model[4].longitudeS</i></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="card-header">
+                                                <h4>Acceleration Chart 5</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <!--ACCELERATION CHART 5-->
+                                                <div id="accelerationChart5" style="height: 370px; width: 100%;"></div>
+                                                <script src="~/Scripts/canvasjs.min.js"></script>
+                                                <!--ACCELERATION CHART 5-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Velocity Chart 5</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <!--VELOCITY CHART 5-->
+                                            <div id="velocityChart5" style="height: 370px; width: 100%;"></div>
+                                            <script src="~/Scripts/canvasjs.min.js"></script>
+                                            <!--VELOCITY CHART 5-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Displacement Chart 5</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <!--DISPLACEMENT CHART 5-->
+                                            <div id="displacementChart5" style="height: 370px; width: 100%;"></div>
+                                            <script src="~/Scripts/canvasjs.min.js"></script>
+                                            <!--DISPLACEMENT CHART 5-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <input type="radio" name="maps" id="5" onchange="CallFuncMap5()" />&nbsp;&nbsp;<b>Show Event5 on Map<i style="color:blue"> (The map is at the bottom of the page)</i></b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--MAPS-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card" id="Group6" style="display:none">
+                        <div class="card-body">
+                            <!--MAP 1-->
+                            <div id="googleMap" style="height:400px;width:100%;"></div>
+                            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHQY-fZTIZ3u5ag08623HUemajSzVqmeA&callback=myMap"></script>
+                            <!--MAP 1-->
+                        </div>
+                    </div>
+                    <div class="card" id="Group7" style="display:none">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>File Name : </th>
+                                    <th><i style="color:blue">@Model[0].dosyaAdi</i></th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                <tr>
+                                    <th>Event Latitude : </th>
+                                    <th><i style="color:blue">@Model[0].latitudeE</i></th>
+                                    <th>Event Longitude : </th>
+                                    <th><i style="color:blue">@Model[0].longitudeE</i></th>
+                                    <th>Station Latitude : </th>
+                                    <th><i style="color:blue">@Model[0].latitudeS</i></th>
+                                    <th>Station Longitude : </th>
+                                    <th><i style="color:blue">@Model[0].longitudeS</i></th>
+                                </tr>
+                                <tr>
+                                    <th> Mesafe : </th>
+                                    <th><i style="color:blue">@Model[0].Distance1</i></th>
+                                    <th> İstanbul Mesafe : </th>
+                                    <th><i style="color:blue">@Model[0].Distance2</i></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card" id="Group8" style="display:none">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>File Name : </th>
+                                    <th><i style="color:blue">@Model[1].dosyaAdi</i></th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                <tr>
+                                    <th>Event Latitude : </th>
+                                    <th><i style="color:blue">@Model[1].latitudeE</i></th>
+                                    <th>Event Longitude : </th>
+                                    <th><i style="color:blue">@Model[1].longitudeE</i></th>
+                                    <th>Station Latitude : </th>
+                                    <th><i style="color:blue">@Model[1].latitudeS</i></th>
+                                    <th>Station Longitude : </th>
+                                    <th><i style="color:blue">@Model[1].longitudeS</i></th>
+                                </tr>
+                                <tr>
+                                    <th> Mesafe : </th>
+                                    <th><i style="color:blue">@Model[1].Distance1</i></th>
+                                    <th> İstanbul Mesafe : </th>
+                                    <th><i style="color:blue">@Model[1].Distance2</i></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card" id="Group9" style="display:none">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>File Name : </th>
+                                    <th><i style="color:blue">@Model[2].dosyaAdi</i></th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                <tr>
+                                    <th>Event Latitude : </th>
+                                    <th><i style="color:blue">@Model[2].latitudeE</i></th>
+                                    <th>Event Longitude : </th>
+                                    <th><i style="color:blue">@Model[2].longitudeE</i></th>
+                                    <th>Station Latitude : </th>
+                                    <th><i style="color:blue">@Model[2].latitudeS</i></th>
+                                    <th>Station Longitude : </th>
+                                    <th><i style="color:blue">@Model[2].longitudeS</i></th>
+                                </tr>
+                                <tr>
+                                    <th> Mesafe : </th>
+                                    <th><i style="color:blue">@Model[2].Distance1</i></th>
+                                    <th> İstanbul Mesafe : </th>
+                                    <th><i style="color:blue">@Model[2].Distance2</i></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card" id="Group10" style="display:none">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>File Name : </th>
+                                    <th><i style="color:blue">@Model[3].dosyaAdi</i></th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                <tr>
+                                    <th>Event Latitude : </th>
+                                    <th><i style="color:blue">@Model[3].latitudeE</i></th>
+                                    <th>Event Longitude : </th>
+                                    <th><i style="color:blue">@Model[3].longitudeE</i></th>
+                                    <th>Station Latitude : </th>
+                                    <th><i style="color:blue">@Model[3].latitudeS</i></th>
+                                    <th>Station Longitude : </th>
+                                    <th><i style="color:blue">@Model[3].longitudeS</i></th>
+                                </tr>
+                                <tr>
+                                    <th> Mesafe : </th>
+                                    <th><i style="color:blue">@Model[3].Distance1</i></th>
+                                    <th> İstanbul Mesafe : </th>
+                                    <th><i style="color:blue">@Model[3].Distance2</i></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card" id="Group11" style="display:none">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>File Name : </th>
+                                    <th><i style="color:blue">@Model[4].dosyaAdi</i></th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                <tr>
+                                    <th>Event Latitude : </th>
+                                    <th><i style="color:blue">@Model[4].latitudeE</i></th>
+                                    <th>Event Longitude : </th>
+                                    <th><i style="color:blue">@Model[4].longitudeE</i></th>
+                                    <th>Station Latitude : </th>
+                                    <th><i style="color:blue">@Model[4].latitudeS</i></th>
+                                    <th>Station Longitude : </th>
+                                    <th><i style="color:blue">@Model[4].longitudeS</i></th>
+                                </tr>
+                                <tr>
+                                    <th> Mesafe : </th>
+                                    <th><i style="color:blue">@Model[4].Distance1</i></th>
+                                    <th> İstanbul Mesafe : </th>
+                                    <th><i style="color:blue">@Model[4].Distance2</i></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--MAPS-->
+        </div>
+    }
+</body>
+</html>
+
+<script>
+    window.onload = function () {
+        CallChartControl(@ViewBag.DosyaSayisi);
+    }
+
+    function CallChartControl(dosyaSayisi) {
+        if (dosyaSayisi == "1") {
+            $("#Group1").show();
+            CallFuncChart1a();
+            CallFuncChart1v();
+            CallFuncChart1d();
+        }
+        else if (dosyaSayisi == "2") {
+            $("#Group1").show();
+            $("#Group2").show();
+            CallFuncChart1a();
+            CallFuncChart1v();
+            CallFuncChart1d();
+            CallFuncChart2a();
+            CallFuncChart2v();
+            CallFuncChart2d();
+        }
+        else if (dosyaSayisi == "3") {
+            $("#Group1").show();
+            $("#Group2").show();
+            $("#Group3").show();
+            CallFuncChart1a();
+            CallFuncChart1v();
+            CallFuncChart1d();
+            CallFuncChart2a();
+            CallFuncChart2v();
+            CallFuncChart2d();
+            CallFuncChart3a();
+            CallFuncChart3v();
+            CallFuncChart3d();
+        }
+        else if (dosyaSayisi == "4") {
+            $("#Group1").show();
+            $("#Group2").show();
+            $("#Group3").show();
+            $("#Group4").show();
+            CallFuncChart1a();
+            CallFuncChart1v();
+            CallFuncChart1d();
+            CallFuncChart2a();
+            CallFuncChart2v();
+            CallFuncChart2d();
+            CallFuncChart3a();
+            CallFuncChart3v();
+            CallFuncChart3d();
+            CallFuncChart4a();
+            CallFuncChart4v();
+            CallFuncChart4d();
+        }
+        else if (dosyaSayisi == "5") {
+            $("#Group1").show();
+            $("#Group2").show();
+            $("#Group3").show();
+            $("#Group4").show();
+            $("#Group5").show();
+            CallFuncChart1a();
+            CallFuncChart1v();
+            CallFuncChart1d();
+            CallFuncChart2a();
+            CallFuncChart2v();
+            CallFuncChart2d();
+            CallFuncChart3a();
+            CallFuncChart3v();
+            CallFuncChart3d();
+            CallFuncChart4a();
+            CallFuncChart4v();
+            CallFuncChart4d();
+            CallFuncChart5a();
+            CallFuncChart5v();
+            CallFuncChart5d();
+        }
+    }
+
+    function CallFuncChart1a() {
+
+            var chart = new CanvasJS.Chart("accelerationChart1", {
+					theme: "light2", // "light1", "light2", "dark1", "dark2"
+					animationEnabled: true,
+					zoomEnabled: true,
+					data: [{
+						type: "line",
+						dataPoints: @Html.Raw(ViewBag.DataPoints1)
+					}]
+		        });
+
+                chart.render();
+    }
+
+    function CallFuncChart2a() {
+
+            var chart = new CanvasJS.Chart("accelerationChart2", {
+					theme: "light2", // "light1", "light2", "dark1", "dark2"
+					animationEnabled: true,
+					zoomEnabled: true,
+					data: [{
+						type: "line",
+						dataPoints: @Html.Raw(ViewBag.DataPoints2)
+					}]
+		        });
+
+                chart.render();
+    }
+
+    function CallFuncChart3a() {
+
+            var chart = new CanvasJS.Chart("accelerationChart3", {
+					theme: "light2", // "light1", "light2", "dark1", "dark2"
+					animationEnabled: true,
+					zoomEnabled: true,
+					data: [{
+						type: "line",
+						dataPoints: @Html.Raw(ViewBag.DataPoints3)
+					}]
+		        });
+
+                chart.render();
+    }
+
+    function CallFuncChart4a() {
+
+            var chart = new CanvasJS.Chart("accelerationChart4", {
+					theme: "light2", // "light1", "light2", "dark1", "dark2"
+					animationEnabled: true,
+					zoomEnabled: true,
+					data: [{
+						type: "line",
+						dataPoints: @Html.Raw(ViewBag.DataPoints4)
+					}]
+		        });
+
+                chart.render();
+    }
+
+    function CallFuncChart5a() {
+
+            var chart = new CanvasJS.Chart("accelerationChart5", {
+					theme: "light2", // "light1", "light2", "dark1", "dark2"
+					animationEnabled: true,
+					zoomEnabled: true,
+					data: [{
+						type: "line",
+						dataPoints: @Html.Raw(ViewBag.DataPoints5)
+					}]
+		        });
+
+                chart.render();
+    }
+
+    function CallFuncChart1v() {
+
+            var chart = new CanvasJS.Chart("velocityChart1", {
+					theme: "light2", // "light1", "light2", "dark1", "dark2"
+					animationEnabled: true,
+					zoomEnabled: true,
+					data: [{
+						type: "line",
+						dataPoints: @Html.Raw(ViewBag.DataPoints6)
+					}]
+		        });
+
+                chart.render();
+    }
+
+    function CallFuncChart2v() {
+
+            var chart = new CanvasJS.Chart("velocityChart2", {
+					theme: "light2", // "light1", "light2", "dark1", "dark2"
+					animationEnabled: true,
+					zoomEnabled: true,
+					data: [{
+						type: "line",
+						dataPoints: @Html.Raw(ViewBag.DataPoints7)
+					}]
+		        });
+
+                chart.render();
+    }
+
+    function CallFuncChart3v() {
+
+            var chart = new CanvasJS.Chart("velocityChart3", {
+					theme: "light2", // "light1", "light2", "dark1", "dark2"
+					animationEnabled: true,
+					zoomEnabled: true,
+					data: [{
+						type: "line",
+						dataPoints: @Html.Raw(ViewBag.DataPoints8)
+					}]
+		        });
+
+                chart.render();
+    }
+
+    function CallFuncChart4v() {
+
+            var chart = new CanvasJS.Chart("velocityChart4", {
+					theme: "light2", // "light1", "light2", "dark1", "dark2"
+					animationEnabled: true,
+					zoomEnabled: true,
+					data: [{
+						type: "line",
+						dataPoints: @Html.Raw(ViewBag.DataPoints9)
+					}]
+		        });
+
+                chart.render();
+    }
+
+    function CallFuncChart5v() {
+
+            var chart = new CanvasJS.Chart("velocityChart5", {
+					theme: "light2", // "light1", "light2", "dark1", "dark2"
+					animationEnabled: true,
+					zoomEnabled: true,
+					data: [{
+						type: "line",
+						dataPoints: @Html.Raw(ViewBag.DataPoints10)
+					}]
+		        });
+
+                chart.render();
+    }
+
+    function CallFuncChart1d() {
+
+            var chart = new CanvasJS.Chart("displacementChart1", {
+					theme: "light2", // "light1", "light2", "dark1", "dark2"
+					animationEnabled: true,
+					zoomEnabled: true,
+					data: [{
+						type: "line",
+						dataPoints: @Html.Raw(ViewBag.DataPoints11)
+					}]
+		        });
+
+                chart.render();
+    }
+
+    function CallFuncChart2d() {
+
+            var chart = new CanvasJS.Chart("displacementChart2", {
+					theme: "light2", // "light1", "light2", "dark1", "dark2"
+					animationEnabled: true,
+					zoomEnabled: true,
+					data: [{
+						type: "line",
+						dataPoints: @Html.Raw(ViewBag.DataPoints12)
+					}]
+		        });
+
+                chart.render();
+    }
+
+    function CallFuncChart3d() {
+
+            var chart = new CanvasJS.Chart("displacementChart3", {
+					theme: "light2", // "light1", "light2", "dark1", "dark2"
+					animationEnabled: true,
+					zoomEnabled: true,
+					data: [{
+						type: "line",
+						dataPoints: @Html.Raw(ViewBag.DataPoints13)
+					}]
+		        });
+
+                chart.render();
+    }
+
+    function CallFuncChart4d() {
+
+            var chart = new CanvasJS.Chart("displacementChart4", {
+					theme: "light2", // "light1", "light2", "dark1", "dark2"
+					animationEnabled: true,
+					zoomEnabled: true,
+					data: [{
+						type: "line",
+						dataPoints: @Html.Raw(ViewBag.DataPoints14)
+					}]
+		        });
+
+                chart.render();
+    }
+
+    function CallFuncChart5d() {
+
+            var chart = new CanvasJS.Chart("displacementChart5", {
+					theme: "light2", // "light1", "light2", "dark1", "dark2"
+					animationEnabled: true,
+					zoomEnabled: true,
+					data: [{
+						type: "line",
+						dataPoints: @Html.Raw(ViewBag.DataPoints15)
+					}]
+		        });
+
+                chart.render();
+    }
+
+    function CallFuncMap1() {
+        $("#Group6").show();
+        $("#Group7").show();
+        $("#Group8").hide();
+        $("#Group9").hide();
+        $("#Group10").hide();
+        $("#Group11").hide();
+        myMap(@Model[0].latitudeE, @Model[0].longitudeE, @Model[0].latitudeS, @Model[0].longitudeS);
+    }
+
+    function CallFuncMap2() {
+        $("#Group6").show();
+        $("#Group7").hide();
+        $("#Group8").show();
+        $("#Group9").hide();
+        $("#Group10").hide();
+        $("#Group11").hide();
+        myMap(@Model[1].latitudeE, @Model[1].longitudeE, @Model[1].latitudeS, @Model[1].longitudeS);
+    }
+
+    function CallFuncMap3() {
+        $("#Group6").show();
+        $("#Group7").hide();
+        $("#Group8").hide();
+        $("#Group9").show();
+        $("#Group10").hide();
+        $("#Group11").hide();
+        myMap(@Model[2].latitudeE, @Model[2].longitudeE, @Model[2].latitudeS, @Model[2].longitudeS);
+    }
+
+    function CallFuncMap4() {
+        $("#Group6").show();
+        $("#Group7").hide();
+        $("#Group8").hide();
+        $("#Group9").hide();
+        $("#Group10").show();
+        $("#Group11").hide();
+        myMap(@Model[3].latitudeE, @Model[3].longitudeE, @Model[3].latitudeS, @Model[3].longitudeS);
+    }
+
+    function CallFuncMap5() {
+        $("#Group6").show();
+        $("#Group7").hide();
+        $("#Group8").hide();
+        $("#Group9").hide();
+        $("#Group10").hide();
+        $("#Group11").show();
+        myMap(@Model[4].latitudeE, @Model[4].longitudeE, @Model[4].latitudeS, @Model[4].longitudeS);
+    }
+
+    function myMap(val1, val2, val3, val4) {
+        var event = new google.maps.LatLng(val1, val2);
+        var station = new google.maps.LatLng(val3, val4);
+        var mapProp = { center: event, zoom: 6, scrollwheel: false, draggable: true, mapTypeId: google.maps.MapTypeId.ROADMAP };
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        var marker1 = new google.maps.Marker({ position: event });
+        var marker2 = new google.maps.Marker({ position: station });
+        marker1.setMap(map);
+        marker2.setMap(map);
+    }
+</script>

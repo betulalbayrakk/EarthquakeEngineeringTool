@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CapstoneProject1ModelStoreContainer" CdmEntityContainer="CapstoneProject1Entities">
+    <EntitySetMapping Name="Kullanici">
+      <EntityTypeMapping TypeName="CapstoneProject1Model.Kullanici">
+        <MappingFragment StoreEntitySet="Kullanici">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="KullaniciTipi" ColumnName="KullaniciTipi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
