@@ -83,8 +83,9 @@
                                             <script src="~/Scripts/canvasjs.min.js"></script>
                                             <!--ACCELERATION CHART 1-->
                                         </div>
-                                        <div>
-
+                                        <div class="card-footer">
+                                            <h4>%PGA: @Model[0].PGA1</h4>
+                                            <h4>Arms: @Model[0].RMSA1</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -99,6 +100,10 @@
                                             <script src="~/Scripts/canvasjs.min.js"></script>
                                             <!--VELOCITY CHART 1-->
                                         </div>
+                                        <div class="card-footer">
+                                            <h4>%PGV: @Model[0].PGV1</h4>
+                                            <h4>Vrms: @Model[0].RMSV1</h4>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
@@ -112,11 +117,77 @@
                                             <script src="~/Scripts/canvasjs.min.js"></script>
                                             <!--DISPLACEMENT CHART 1-->
                                         </div>
+                                        <div class="card-footer">
+                                            <h4>%PGD: @Model[0].PGD1</h4>
+                                            <h4>Drms: @Model[0].RMSD1</h4>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="card">
+                                    <div class="card-body">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Ratio : </th>
+                                                    <th><i style="color:blue">@Model[0].ratio1</i></th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Arias Intensity : </th>
+                                                    <th><i style="color:blue"> @Model[0].ArInt1</i></th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Characteristic Intensity : </th>
+                                                    <th><i style="color:blue">@Model[0].ChaInt1</i></th>
+                                                </tr>
+                                                <tr>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        @*<h4>Ratio: @Model[0].ratio1</h4>
+                                        <h4>Arias Intensity: @Model[0].ArInt1</h4>
+                                        <h4>Characteristic Intensity: @Model[0].ChaInt1</h4>*@
+                                    </div>
                                     <div class="card-header">
                                         <input type="radio" name="maps" id="1" onchange="CallFuncMap1()" />&nbsp;&nbsp;<b>Show Event1 on Map <i style="color:blue"> (The map is at the bottom of the page)</i></b>
                                     </div>
@@ -171,6 +242,10 @@
                                                 <script src="~/Scripts/canvasjs.min.js"></script>
                                                 <!--ACCELERATION CHART 2-->
                                             </div>
+                                            <div class="card-footer">
+                                                <h4>%PGA: @Model[1].PGA2</h4>
+                                                <h4>Arms: @Model[1].RMSA2</h4>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -185,6 +260,10 @@
                                             <script src="~/Scripts/canvasjs.min.js"></script>
                                             <!--VELOCITY CHART 2-->
                                         </div>
+                                        <div class="card-footer">
+                                            <h4>%PGV: @Model[1].PGV2</h4>
+                                            <h4>Vrms: @Model[1].RMSV2</h4>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
@@ -198,11 +277,74 @@
                                             <script src="~/Scripts/canvasjs.min.js"></script>
                                             <!--DISPLACEMENT CHART 2-->
                                         </div>
+                                        <div class="card-footer">
+                                            <h4>%PGD: @Model[1].PGD2</h4>
+                                            <h4>Drms: @Model[1].RMSD2</h4>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="card">
+                                    <div class="card-body">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Ratio : </th>
+                                                    <th><i style="color:blue">@Model[1].ratio2</i></th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Arias Intensity : </th>
+                                                    <th><i style="color:blue"> @Model[1].ArInt2</i></th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Characteristic Intensity : </th>
+                                                    <th><i style="color:blue">@Model[1].ChaInt2</i></th>
+                                                </tr>
+                                                <tr>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                     <div class="card-header">
                                         <input type="radio" name="maps" id="2" onchange="CallFuncMap2()" />&nbsp;&nbsp;<b>Show Event2 on Map<i style="color:blue"> (The map is at the bottom of the page)</i></b>
                                     </div>
@@ -257,6 +399,10 @@
                                                 <script src="~/Scripts/canvasjs.min.js"></script>
                                                 <!--ACCELERATION CHART 3-->
                                             </div>
+                                            <div class="card-footer">
+                                                <h4>%PGA: @Model[2].PGA3</h4>
+                                                <h4>Arms: @Model[2].RMSA3</h4>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -271,6 +417,10 @@
                                             <script src="~/Scripts/canvasjs.min.js"></script>
                                             <!--VELOCITY CHART 3-->
                                         </div>
+                                        <div class="card-footer">
+                                            <h4>%PGV: @Model[2].PGV3</h4>
+                                            <h4>Vrms: @Model[2].RMSV3</h4>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
@@ -284,11 +434,74 @@
                                             <script src="~/Scripts/canvasjs.min.js"></script>
                                             <!--DISPLACEMENT CHART 3-->
                                         </div>
+                                        <div class="card-footer">
+                                            <h4>%PGD: @Model[2].PGD3</h4>
+                                            <h4>Drms: @Model[2].RMSD3</h4>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="card">
+                                    <div class="card-body">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Ratio : </th>
+                                                    <th><i style="color:blue">@Model[2].ratio3</i></th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Arias Intensity : </th>
+                                                    <th><i style="color:blue"> @Model[2].ArInt3</i></th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Characteristic Intensity : </th>
+                                                    <th><i style="color:blue">@Model[2].ChaInt3</i></th>
+                                                </tr>
+                                                <tr>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                     <div class="card-header">
                                         <input type="radio" name="maps" id="3" onchange="CallFuncMap3()" />&nbsp;&nbsp;<b>Show Event3 on Map<i style="color:blue"> (The map is at the bottom of the page)</i></b>
                                     </div>
@@ -343,6 +556,10 @@
                                                 <script src="~/Scripts/canvasjs.min.js"></script>
                                                 <!--ACCELERATION CHART 4-->
                                             </div>
+                                            <div class="card-footer">
+                                                <h4>%PGA: @Model[3].PGA4</h4>
+                                                <h4>Arms: @Model[3].RMSA4</h4>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -357,6 +574,10 @@
                                             <script src="~/Scripts/canvasjs.min.js"></script>
                                             <!--VELOCITY CHART 4-->
                                         </div>
+                                        <div class="card-footer">
+                                            <h4>%PGV: @Model[3].PGV4</h4>
+                                            <h4>Vrms: @Model[3].RMSV4</h4>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
@@ -370,11 +591,74 @@
                                             <script src="~/Scripts/canvasjs.min.js"></script>
                                             <!--DISPLACEMENT CHART 4-->
                                         </div>
+                                        <div class="card-footer">
+                                            <h4>%PGD: @Model[3].PGD4</h4>
+                                            <h4>Drms: @Model[3].RMSD4</h4>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="card">
+                                    <div class="card-body">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Ratio : </th>
+                                                    <th><i style="color:blue">@Model[3].ratio4</i></th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Arias Intensity : </th>
+                                                    <th><i style="color:blue"> @Model[3].ArInt4</i></th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Characteristic Intensity : </th>
+                                                    <th><i style="color:blue">@Model[3].ChaInt4</i></th>
+                                                </tr>
+                                                <tr>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                     <div class="card-header">
                                         <input type="radio" name="maps" id="4" onchange="CallFuncMap4()" />&nbsp;&nbsp;<b>Show Event4 on Map<i style="color:blue"> (The map is at the bottom of the page)</i></b>
                                     </div>
@@ -429,6 +713,10 @@
                                                 <script src="~/Scripts/canvasjs.min.js"></script>
                                                 <!--ACCELERATION CHART 5-->
                                             </div>
+                                            <div class="card-footer">
+                                                <h4>%PGA: @Model[4].PGA5</h4>
+                                                <h4>Arms: @Model[4].RMSA5</h4>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -443,6 +731,10 @@
                                             <script src="~/Scripts/canvasjs.min.js"></script>
                                             <!--VELOCITY CHART 5-->
                                         </div>
+                                        <div class="card-footer">
+                                            <h4>%PGV: @Model[4].PGV5</h4>
+                                            <h4>Vrms: @Model[4].RMSV5</h4>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
@@ -456,11 +748,74 @@
                                             <script src="~/Scripts/canvasjs.min.js"></script>
                                             <!--DISPLACEMENT CHART 5-->
                                         </div>
+                                        <div class="card-footer">
+                                            <h4>%PGD: @Model[4].PGD5</h4>
+                                            <h4>Drms: @Model[4].RMSD5</h4>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="card">
+                                    <div class="card-body">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Ratio : </th>
+                                                    <th><i style="color:blue">@Model[4].ratio5</i></th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Arias Intensity : </th>
+                                                    <th><i style="color:blue"> @Model[4].ArInt5</i></th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Characteristic Intensity : </th>
+                                                    <th><i style="color:blue">@Model[4].ChaInt5</i></th>
+                                                </tr>
+                                                <tr>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                     <div class="card-header">
                                         <input type="radio" name="maps" id="5" onchange="CallFuncMap5()" />&nbsp;&nbsp;<b>Show Event5 on Map<i style="color:blue"> (The map is at the bottom of the page)</i></b>
                                     </div>
@@ -734,7 +1089,9 @@
 					animationEnabled: true,
 					zoomEnabled: true,
 					data: [{
-						type: "line",
+                        type: "line",
+                        indexLabelFontColor: "red",
+                        indexLabelFontStyle: "bold",
 						dataPoints: @Html.Raw(ViewBag.DataPoints1)
 					}]
 		        });
@@ -749,7 +1106,9 @@
 					animationEnabled: true,
 					zoomEnabled: true,
 					data: [{
-						type: "line",
+                        type: "line",
+                        indexLabelFontColor: "red",
+                        indexLabelFontStyle: "bold",
 						dataPoints: @Html.Raw(ViewBag.DataPoints2)
 					}]
 		        });
@@ -764,7 +1123,9 @@
 					animationEnabled: true,
 					zoomEnabled: true,
 					data: [{
-						type: "line",
+                        type: "line",
+                        indexLabelFontColor: "red",
+                        indexLabelFontStyle: "bold",
 						dataPoints: @Html.Raw(ViewBag.DataPoints3)
 					}]
 		        });
@@ -779,7 +1140,9 @@
 					animationEnabled: true,
 					zoomEnabled: true,
 					data: [{
-						type: "line",
+                        type: "line",
+                        indexLabelFontColor: "red",
+                        indexLabelFontStyle: "bold",
 						dataPoints: @Html.Raw(ViewBag.DataPoints4)
 					}]
 		        });
@@ -794,7 +1157,9 @@
 					animationEnabled: true,
 					zoomEnabled: true,
 					data: [{
-						type: "line",
+                        type: "line",
+                        indexLabelFontColor: "red",
+                        indexLabelFontStyle: "bold",
 						dataPoints: @Html.Raw(ViewBag.DataPoints5)
 					}]
 		        });
@@ -809,7 +1174,9 @@
 					animationEnabled: true,
 					zoomEnabled: true,
 					data: [{
-						type: "line",
+                        type: "line",
+                        indexLabelFontColor: "red",
+                        indexLabelFontStyle: "bold",
 						dataPoints: @Html.Raw(ViewBag.DataPoints6)
 					}]
 		        });
@@ -824,7 +1191,9 @@
 					animationEnabled: true,
 					zoomEnabled: true,
 					data: [{
-						type: "line",
+                        type: "line",
+                        indexLabelFontColor: "red",
+                        indexLabelFontStyle: "bold",
 						dataPoints: @Html.Raw(ViewBag.DataPoints7)
 					}]
 		        });
@@ -839,7 +1208,9 @@
 					animationEnabled: true,
 					zoomEnabled: true,
 					data: [{
-						type: "line",
+                        type: "line",
+                        indexLabelFontColor: "red",
+                        indexLabelFontStyle: "bold",
 						dataPoints: @Html.Raw(ViewBag.DataPoints8)
 					}]
 		        });
@@ -854,7 +1225,9 @@
 					animationEnabled: true,
 					zoomEnabled: true,
 					data: [{
-						type: "line",
+                        type: "line",
+                        indexLabelFontColor: "red",
+                        indexLabelFontStyle: "bold",
 						dataPoints: @Html.Raw(ViewBag.DataPoints9)
 					}]
 		        });
@@ -869,7 +1242,9 @@
 					animationEnabled: true,
 					zoomEnabled: true,
 					data: [{
-						type: "line",
+                        type: "line",
+                        indexLabelFontColor: "red",
+                        indexLabelFontStyle: "bold",
 						dataPoints: @Html.Raw(ViewBag.DataPoints10)
 					}]
 		        });
@@ -884,7 +1259,9 @@
 					animationEnabled: true,
 					zoomEnabled: true,
 					data: [{
-						type: "line",
+                        type: "line",
+                        indexLabelFontColor: "red",
+                        indexLabelFontStyle: "bold",
 						dataPoints: @Html.Raw(ViewBag.DataPoints11)
 					}]
 		        });
@@ -899,7 +1276,9 @@
 					animationEnabled: true,
 					zoomEnabled: true,
 					data: [{
-						type: "line",
+                        type: "line",
+                        indexLabelFontColor: "red",
+                        indexLabelFontStyle: "bold",
 						dataPoints: @Html.Raw(ViewBag.DataPoints12)
 					}]
 		        });
@@ -914,7 +1293,9 @@
 					animationEnabled: true,
 					zoomEnabled: true,
 					data: [{
-						type: "line",
+                        type: "line",
+                        indexLabelFontColor: "red",
+                        indexLabelFontStyle: "bold",
 						dataPoints: @Html.Raw(ViewBag.DataPoints13)
 					}]
 		        });
@@ -929,7 +1310,9 @@
 					animationEnabled: true,
 					zoomEnabled: true,
 					data: [{
-						type: "line",
+                        type: "line",
+                        indexLabelFontColor: "red",
+                        indexLabelFontStyle: "bold",
 						dataPoints: @Html.Raw(ViewBag.DataPoints14)
 					}]
 		        });
@@ -944,7 +1327,9 @@
 					animationEnabled: true,
 					zoomEnabled: true,
 					data: [{
-						type: "line",
+                        type: "line",
+                        indexLabelFontColor: "red",
+                        indexLabelFontStyle: "bold",
 						dataPoints: @Html.Raw(ViewBag.DataPoints15)
 					}]
 		        });

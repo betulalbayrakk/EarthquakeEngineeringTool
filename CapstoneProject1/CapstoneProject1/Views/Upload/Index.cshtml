@@ -1,0 +1,142 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+
+@using (Html.BeginForm("Ekle", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="invoice p-3 mb-3">
+        <!-- title row -->
+        <div class="row">
+            <div class="col-12">
+                <h3>
+                    <i class="fas fa-globe"></i> DOSYA YÜKLEME
+                </h3>
+            </div>
+            <!-- /.col -->
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <input type="radio" checked="checked" id="1" name="FileType" value="Single" onchange="CallFunc(this.value)">
+                                        <label>Single Acceleration value per line</label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <input type="radio" id="2" name="FileType" value="Time" onchange="CallFunc(this.value)">
+                                        <label>Time & Acceleration values per line</label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <input type="radio" id="3" name="FileType" value="Multiple" onchange="CallFunc(this.value)">
+                                        <label>Multiple Acceleration values per line</label>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <input type="radio" id="4" name="FileType" value="Peer" onchange="CallFunc(this.value)">
+                                        <label>PEER NGA Format</label>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br />
+                        <br />
+                        <br />
+                        <div class="card" id="location" style="display:none">
+                            <div class="card-body">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th>
+                                                <label for="Latitude">Event Latitude Degree:</label>
+                                            </th>
+                                            <th>
+                                                <input type="text" name="Latitude" id="txt" />
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <label for="Longitude">Event Longitude Degree:</label>
+                                            </th>
+                                            <th>
+                                                <input type="text" name="Longitude" id="txt" />
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <label for="Latitude1">Station Latitude Degree:</label>
+                                            </th>
+                                            <th>
+                                                <input type="text" name="Latitude1" id="txt" />
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <label for="Longitude1">Station Longitude Degree:</label>
+                                            </th>
+                                            <th>
+                                                <input type="text" name="Longitude1" id="txt" />
+                                            </th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>First Line : </th>
+                                    <th><input type="text" name="FirstLine" class="form-control"></th>
+                                </tr>
+                                <tr>
+                                    <th>Time Step dt : </th>
+                                    <th><input type="text" name="TimeStep" class="form-control"></th>
+                                </tr>
+                                <tr>
+                                    <th>Scaling Factor : </th>
+                                    <th><input type="text" name="ScalingFactor" class="form-control"></th>
+                                </tr>
+                                <tr>
+                                    <th><input type="file" name="uploadingFile" multiple /></th>
+                                </tr>
+                                <tr>
+                                    <th><input type="submit" value="Upload file" /></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    function CallFunc(val) {
+        if (val == "Peer") {
+            $("#location").show();
+        }
+        else {
+            $("#location").hide();
+        }
+    }
+</script>
